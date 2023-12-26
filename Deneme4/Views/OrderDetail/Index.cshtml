@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Stock and Order Data</h2>
+
+<h3>Stock Data</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>StockId</th>
+            <th>StockName</th>
+            <th>Unit</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stock in ViewBag.StockData)
+        {
+            <tr>
+                <td>@stock.StockId</td>
+                <td>@stock.StockName</td>
+                <td>@stock.Unit</td>
+                <td>@stock.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Order Data</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>OrderId</th>
+            <th>CustomerId</th>
+            <th>OrderDate</th>
+            <th>OrderNo</th>
+            <th>TotalPrice</th>
+            <th>Tax</th>
+            <th>IsActive</th>
+            <th>InvoiceAddress</th>
+            <th>DeliveryAddress</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in ViewBag.OrderData)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.CustomerId</td>
+                <td>@order.OrderDate</td>
+                <td>@order.OrderNo</td>
+                <td>@order.TotalPrice</td>
+                <td>@order.Tax</td>
+                <td>@order.IsActive</td>
+                <td>@order.InvoiceAddress</td>
+                <td>@order.DeliveryAddress</td>
+            </tr>
+        }
+    </tbody>
+</table>

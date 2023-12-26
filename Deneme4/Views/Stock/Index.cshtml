@@ -1,0 +1,15 @@
+﻿@model Deneme4.Models.Stock
+
+<h2>Stock Status</h2>
+
+
+<div>
+    <h3>Current Stock Information</h3>
+    <p>Ürün Adı: @Model.StockName</p>
+    <p>Stok Miktarı: @Model.Unit</p>
+    <p>Fiyat: @Model.Price</p>
+</div>
+
+<form asp-action="DecreaseStock" asp-controller="Stock" method="post">
+    <button type="submit" class="btn btn-primary">Siparişi Tamamla</button>
+</form>

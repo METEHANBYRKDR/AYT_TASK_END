@@ -1,0 +1,30 @@
+﻿@model List<CustomerAddress>
+
+<h2>Customer Address List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Address ID</th>
+            <th>Customer ID</th>
+            <th>Customer Name</th>
+            <th>Address Type</th>
+            <th>City</th>
+            <th>Is Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customerAddress in Model)
+        {
+            <tr>
+                <td>@customerAddress.AddressId</td>
+                <td>@customerAddress.CustomerId</td>
+                <td>@customerAddress.Customer.CustomerName</td>
+                <td>@customerAddress.AddressType</td>
+                <td>@customerAddress.City</td>
+                <td>@customerAddress.IsActive</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Ekle" class="btn btn-success">Yeni Müşteri Adresi Ekle</a>

@@ -1,0 +1,36 @@
+﻿@model CustomerAddress
+
+<h2>Yeni Adres Ekle</h2>
+
+<form asp-action="Ekle" method="post">
+    <div class="form-group">
+        <label asp-for="CustomerId">Müşteri Seç</label>
+        <select asp-for="CustomerId" asp-items="new SelectList(ViewBag.Customers, nameof(Customer.CustomerId), nameof(Customer.CustomerName))" class="form-control">
+            <option value="">-- Müşteri Seç --</option>
+        </select>
+        <span asp-validation-for="CustomerId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AddressType">Adres Türü</label>
+        <input asp-for="AddressType" class="form-control" />
+        <span asp-validation-for="AddressType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="City">Şehir</label>
+        <input asp-for="City" class="form-control" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsActive">Aktif mi?</label>
+        <input asp-for="IsActive" type="checkbox" />
+        <span asp-validation-for="IsActive" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Adres Ekle</button>
+    </div>
+</form>

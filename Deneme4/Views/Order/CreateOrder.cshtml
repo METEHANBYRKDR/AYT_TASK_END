@@ -1,0 +1,44 @@
+﻿@model Order
+
+<h2>Sipariş Oluştur</h2>
+
+<form asp-action="CreateOrder" method="post">
+    <div class="form-group">
+        <label asp-for="CustomerId">Müşteri Seç</label>
+        <select asp-for="CustomerId" asp-items="new SelectList(ViewBag.Customers, nameof(Customer.CustomerId), nameof(Customer.CustomerName))" class="form-control">
+            <option value="">-- Müşteri Seç --</option>
+        </select>
+        <span asp-validation-for="CustomerId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Fiyat Seçimi</label>
+        <div>
+
+            <label>
+                <input type="radio" asp-for="TotalPrice" value="170" /> 170 TL
+            </label>            
+            <label>
+                <input type="radio" asp-for="TotalPrice" value="150" /> 10 TL
+            </label>
+            <span asp-validation-for="TotalPrice" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="InvoiceAddress">Invoice Address</label>
+        <input asp-for="InvoiceAddress" class="form-control" />
+        <span asp-validation-for="InvoiceAddress" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="DeliveryAddress">Delivery Address</label>
+        <input asp-for="DeliveryAddress" class="form-control" />
+        <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Sipariş Oluştur</button>
+    </div>
+</form>
